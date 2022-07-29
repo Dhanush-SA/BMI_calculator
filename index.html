@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BMI calculator</title>
+<style>
+
+#content {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	padding: 50px;
+    border: 5px solid #5bccf6;
+    
+	width: fit-content;
+	border-radius: 6px 6px 6px 6px;
+	background-color: #5bccf6;
+
+
+}
+
+.img{
+	height: 490px;
+	margin-right: 20px;
+	
+}
+
+.overall{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 30px;
+}
+
+
+.Height, .Weight{
+	color: white;
+}
+
+body{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+</style>
+
+</head>
+
+<body>
+	<div class = "overall">
+		
+			<div>
+				<img class = "img" src="bmi4.png" alt="">
+			</div>
+			<div id = "content">
+				<h2 style="color:red;background-color:yellow;text-align: center;">BMI calculator:</h2>
+		
+				<h3 class = "Height" style="text-align:center;">Enter your height in cms : <input type="text" id = "height"></h3>
+		
+				<h3 class = "Weight" style="text-align:center;">Enter your weight in kg : <input type="text" id = "weight"></h3>
+		
+				<br>
+				<br>
+				<br>
+				<div style="text-align:center;">
+					<button type="button" onclick="BMI()">calculate</button>
+				</div> 
+		
+				<h4 id = "BMI" style="text-align:center;color: white;">BMI : </h4>
+				<p id="txt" style = "text-align:center"></p>
+				
+				</div>
+	</div>
+	
+
+		<script>
+
+			const h = document.getElementById("height");
+			const w = document.getElementById("weight");
+			const p = document.getElementById("BMI"); 
+			var v;
+			function BMI(){
+				var r = (w.value)/((h.value*h.value)/10000)
+				p.innerText = `BMI: ${r}`
+				if( r < 18.5){
+					v = "you are in underweight"}
+				if( r >= 18.5 && r < 25){
+					v = "you are in normal weight"}
+				if( r >= 25 && r < 30){
+					v = "you are in overweight"}
+				if( r >= 30){
+					v = "you are obese"}
+				document.getElementById("txt").innerHTML = v; 
+
+			}
+
+		</script>
+
+</body>
+
+</html>
